@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   lint:
-    runs-on: monkci-ubuntu-24.04-2
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -22,7 +22,7 @@ jobs:
 
   test:
     needs: lint
-    runs-on: monkci-ubuntu-24.04-2
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -36,7 +36,7 @@ jobs:
 
   build:
     needs: test
-    runs-on: monkci-ubuntu-24.04-2
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -50,7 +50,7 @@ jobs:
 
   analysis:
     needs: test
-    runs-on: monkci-ubuntu-24.04-2
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -66,7 +66,7 @@ jobs:
 
   performance:
     needs: build
-    runs-on: monkci-ubuntu-24.04-2
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
